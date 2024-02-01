@@ -1,0 +1,1 @@
+cfunc_captureSummary!~!Display Data capture summary

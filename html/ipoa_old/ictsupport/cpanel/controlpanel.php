@@ -1,0 +1,122 @@
+<?php
+@session_start();
+$ignore_login=true;
+if(@$_SESSION['loggedIn']==990)
+	{
+		header("location:mainpage.php");
+		exit;
+	}
+$_SESSION["genius"]="";
+include_once "conn.php";
+$userid=@$_GET["userid"];
+
+//include_once"globalfunc.php";
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Boardroom Docshare - Login</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="/stacs/css/newstyle.css" rel="stylesheet" type="text/css" />
+<link href="../css/newstyle.css" rel="stylesheet" type="text/css" />
+<link href="css/newstyle.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="./images/logo.png" label="JKUAT" />
+</head>
+
+<script language="javascript">
+	function redirectMe()
+	{
+		document.frmLogin.action="loginerror.php";
+		document.frmLogin.submit();
+	}
+</script>
+<center><form name="frmLogin" method="post" action="loginnow.php">
+<table width="507" border="0" cellpadding="0" cellspacing="0" class="Black_Header_Text">
+  <!--DWLayoutTable-->
+    <tr>
+      <td width="41" height="106">&nbsp;</td>
+      <td width="149">&nbsp;</td>
+      <td width="6">&nbsp;</td>
+      <td width="69">&nbsp;</td>
+      <td width="89">&nbsp;</td>
+      <td width="153">&nbsp;</td>
+      </tr>
+    <tr>
+      <td height="106">&nbsp;</td>
+      <td colspan="5" valign="top"><div align="center"><img src="images/login.jpg" width="300" height="94" /></div></td>
+    </tr>
+    
+    
+  
+  
+  <tr>
+    <td height="2" colspan="6" valign="top"><hr /></td>
+  </tr>
+  <?php if($userid !=""){?>
+  <tr>
+    <td height="19" colspan="2" valign="top"><div align="right">Names</div></td>
+    <td></td>
+    <td colspan="3" valign="top"><input name="txtNames" type="text" class="STR" id="txtNames" readonly="true" value="<?php echo fetchValue("person","personid","$userid",1);?>" /></td>
+    </tr>
+	<?php }?>
+  
+  <tr>
+    <td height="23" colspan="2" valign="top" class="Black_Header_Text"><div align="right">Username</div></td>
+    <td>&nbsp;</td>
+    <td colspan="3" valign="top"><div align="left">
+      <input name="txtUsername" type="text" id="txtUsername" size="30" class="STR"  <?php if($userid !=""){ echo "readonly=\"true\""; $_SESSION["member"]="99";}?> value="<?php echo fetchValue("person","personid","$userid",2);?>"/>
+    </div></td>
+    </tr>
+  <tr>
+    <td height="23" colspan="2" valign="top" class="Black_Header_Text"><div align="right">Password</div></td>
+    <td>&nbsp;</td>
+    <td colspan="3" valign="top"><div align="left">
+      <input name="txtPassword" type="password" id="txtPassword" size="30" class="STR" />
+    </div></td>
+    </tr>
+  <tr>
+    <td height="8"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+  <tr>
+    <td height="24">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="2" valign="top"><div align="right">
+      <!--<input type="submit" name="Submit" value="    Login    "  class="BTN"/>-->
+      <?php
+		$script="document.frmLogin.submit();"; 
+		echo classBTN("btnApprove","&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;","#","","$script"); 
+		?>
+    </div></td>
+    <td valign="top"><!--<input type="reset" name="Submit2" value="    Reset    "  class="BTN"/>-->
+	
+      <?php
+		$script="document.frmLogin.reset();"; 
+		echo classBTN("btnApprove","&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;","#","","$script"); 
+		?>	</td>
+    <td valign="top"><div align="left">
+      <?php
+		$script=""; 
+		echo classBTN("btnApprove","&nbsp;&nbsp;Back to Home&nbsp;&nbsp;","../index.php","","$script"); 
+		?>
+    </div></td>
+    </tr>
+  <tr>
+    <td height="84"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+</table>
+</form>
+</center>
+</body>
+</html>

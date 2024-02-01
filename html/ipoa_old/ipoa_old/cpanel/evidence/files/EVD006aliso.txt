@@ -1,0 +1,21 @@
+Hello Bwana Samuel,
+As we had talked, we want the option of our alumni registering online be available on our alumni website as it used to be.
+These are the details needed from the alumni as part of online registration:
+
+    Full Names (start with Sir name)
+    Employer
+    Postal address
+    Phone number (s)
+    Course
+    Year of graduation
+    Email Address
+
+The information of the online registered alumni should be visible to the admin of the site is he/she logs in
+
+Thank you
+
+Andenga Henry Vincent
+
+Administrative Assistant
+
+Alumni & International students Office (ALISO)

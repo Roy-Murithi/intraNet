@@ -1,0 +1,15 @@
+/*
+Designed by Njeru 2016
+*/
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+} 
+
+a:hover {
+  color: black ;
+  background-color: #FFFFFF ;
+}
+
